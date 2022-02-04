@@ -1,0 +1,35 @@
+body{
+    background-color: #5384a2;
+    margin: auto;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.barre_separation{
+    width: 3%;
+}
+header .onglet{
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.6s;
+}
+header .onglet:hover{
+    background: #b5d0d4;
+    color: #553e52;
+}
+#barre_de_navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+#onglets{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
+}
