@@ -246,24 +246,46 @@ function getLastDatemsg($id) {
 // Ilan JAGLIN
 
 /**
-    * @param $username string
-    * @param $password string
-    * @return array
-    **/
-    function isRegistered($username, $password){
-        $db = connect();
-        $sql = "SELECT * FROM utilisateur WHERE `utilisateur_pseudo` = :username AND `utilisateur_password` = :password";
+* @param $username string
+* @param $password string
+* @return array
+**/
+function isRegistered($username, $password){
+    $db = connect();
+    $sql = "SELECT * FROM utilisateur WHERE `utilisateur_pseudo` = :username AND `utilisateur_password` = :password";
+
+    $request = $db->prepare($sql);
+    $request->bindvalue(':username', $username, PDO::PARAM_STR);
+    $request->bindvalue(':password', $password, PDO::PARAM_STR);
+
+    $request->execute();
+    $return = $request->fetch();
     
-        $request = $db->prepare($sql);
-        $request->bindvalue(':username', $username, PDO::PARAM_STR);
-        $request->bindvalue(':password', $password, PDO::PARAM_STR);
-    
-        $request->execute();
-        $return = $request->fetch();
-        
-        if($return){
-            return $return;
-        }
-        return false;
+    if($return){
+        return $return;
     }
+    return false;
+}
+/**
+* @param $pseudo string
+* @param $email string
+* @param $pwd string
+* @return array
+**/
+function register($pseudo, $email, $pwd){
+    $db = connect();
+    $sql = "INSERT INTO `logins`(`login-pseudo`, `login-email`, `login-pwd`) VALUES (:pseudo, :email, :pwd)";
+
+    $request = $this->db->prepare($sql);
+    $request->bindvalue(':pseudo', $pseudo, PDO::PARAM_STR);
+    $request->bindvalue(':email', $email, PDO::PARAM_STR);
+    $request->bindvalue(':pwd', $pwd, PDO::PARAM_STR);
+
+    $return = $request->execute();
+
+    if($return){
+        return $this->isRegistered($email, $pwd);
+    }
+    return false;
+}
 ?>
