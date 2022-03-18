@@ -2,10 +2,7 @@
 
 function connect(){
     try{
-        $db = new PDO(
-            'mysql:host=localhost;dbname=cubeweb;charset=utf8','root','',
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-        );
+        $db = new PDO('mysql:host=localhost;dbname=cubeweb;charset=utf8','root','');
     }catch(Exception $e){
         die("erreur de connexion PDO : ".$e->getMessage());
     }
@@ -285,6 +282,24 @@ function register($pseudo, $mail, $password){
 
     if($return){
         return isRegistered($pseudo, $password);
+    }
+    return false;
+}
+/**
+* @param $pseudo string
+* @return boolean
+**/
+function testPseudo($pseudo){
+    $sql = "SELECT * FROM `utilisateur` WHERE `login-pseudo` = :pseudo";
+
+    $request = $this->db->prepare($sql);
+    $request->bindvalue(':pseudo', $pseudo, PDO::PARAM_STR);
+    
+    $request->execute();
+    $return = $request->fetch();
+
+    if($return){
+        return true;
     }
     return false;
 }

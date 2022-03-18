@@ -11,9 +11,8 @@ if(isset($_POST['username']) and isset($_POST['mail']) and isset($_POST['passwor
         $password = $_POST['password'];
 
         $user = register($_POST['username'], $_POST['mail'], $password);
-        $pseudo = testPseudo($_POST['username']);
 
-        if($user and !$pseudo){
+        if($user){
             session_start();
 
             $_SESSION['user'] = [
@@ -21,21 +20,17 @@ if(isset($_POST['username']) and isset($_POST['mail']) and isset($_POST['passwor
                 'pseudo' => $user['utilisateur_pseudo']
             ];
 
-            var_dump($user, $_SESSION['user']);
-            // header('location:../Welcome/');
+            header('location:../Welcome/');
             exit;
         } else {
             
-            var_dump('Pseudo', $pseudo);
-            // header('location:creation_compte.html?p');
-        exit;
+            header('location:creation_compte.html?ps');
+            exit;
         }
     } else {
-        var_dump('mot de passe');
-        // header('location:creation_compte.html?p');
+        header('location:creation_compte.html?pwd');
         exit;
     }
 }
-var_dump('fin');
-// header('location:index.php');
+header('location:index.php');
 exit;
