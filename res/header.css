@@ -1,0 +1,21 @@
+#main_header {
+    margin: 0px 1vw;
+
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+}
+
+
+
+#logo_header {
+    width: 64px;
+    height: 64px;
+}
+
+
+#main_header nav {
+    display: flex;
+        align-items: center;
+        gap: 1vw;
+}

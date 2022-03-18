@@ -31,7 +31,7 @@ class FunctionSQL{
         if($return){
             return $return->fetchAll();
         }
-        return $return;
+        return false;
     }
     /**
     * @param $table string Name of the table
@@ -46,7 +46,7 @@ class FunctionSQL{
         if($return){
             return $return->fetch();
         }
-        return $return;
+        return false;
     }
     /**
     * @param $table string Name of the table
@@ -57,40 +57,5 @@ class FunctionSQL{
         $sql = "DELETE FROM `$table` WHERE `pk_%` = '$id'";
 
         return $this->db->exec($sql);
-    }
-}
-
-
-
-function sqlAddJeu($value){
-    $db = connect();
-
-    $sql = "INSERT INTO `jeux`(`jeu-nom`) VALUES ('$value')";
-
-    return $db->exec($sql);
-}
-
-
-function sqlAddLogin($pseudo, $email, $pwd){
-    $db = connect();
-
-    $sql = "INSERT INTO `logins`(`login-pseudo`, `login-email`, `login-pwd`) VALUES ('$pseudo', '$email', '$pwd')";
-    $return = $db->exec($sql);
-
-    if($return){
-        // Search Primary Key of User login
-        $sql = "SELECT `pk_login` FROM `logins` WHERE `login-pseudo` = '$pseudo'";
-        $fk_login = $db->query($sql);
-
-        $fk_login = $fk_login->fetch();
-        $fk_login = $fk_login['pk_login'];
-
-
-        // Create a new 
-        $sql = "INSERT INTO `infoP`(`fk_login`) VALUES ('$fk_login')";
-        $db->exec($sql);
-    }
-    else{
-
     }
 }
