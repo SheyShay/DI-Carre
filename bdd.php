@@ -252,7 +252,7 @@ function getLastDatemsg($id) {
 **/
 function isRegistered($username, $password){
     $db = connect();
-    $sql = "SELECT * FROM utilisateur WHERE `utilisateur_pseudo` = :username AND `utilisateur_password` = :password";
+    $sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_pseudo` = :username AND `utilisateur_password` = :password";
 
     $request = $db->prepare($sql);
     $request->bindvalue(':username', $username, PDO::PARAM_STR);
@@ -272,19 +272,19 @@ function isRegistered($username, $password){
 * @param $pwd string
 * @return array
 **/
-function register($pseudo, $email, $pwd){
+function register($pseudo, $mail, $password){
     $db = connect();
-    $sql = "INSERT INTO `logins`(`login-pseudo`, `login-email`, `login-pwd`) VALUES (:pseudo, :email, :pwd)";
+    $sql = "INSERT INTO `utilisateur`(`utilisateur_pseudo`, `utilisateur_mail`, `utilisateur_password`) VALUES (:pseudo, :mail, :password)";
 
-    $request = $this->db->prepare($sql);
+    $request = $db->prepare($sql);
     $request->bindvalue(':pseudo', $pseudo, PDO::PARAM_STR);
-    $request->bindvalue(':email', $email, PDO::PARAM_STR);
-    $request->bindvalue(':pwd', $pwd, PDO::PARAM_STR);
+    $request->bindvalue(':mail', $mail, PDO::PARAM_STR);
+    $request->bindvalue(':password', $password, PDO::PARAM_STR);
 
     $return = $request->execute();
 
     if($return){
-        return $this->isRegistered($email, $pwd);
+        return isRegistered($pseudo, $password);
     }
     return false;
 }
