@@ -237,4 +237,33 @@ function getLastDatemsg($id) {
     return $results;
 }
 */
+
+
+
+
+
+
+// Ilan JAGLIN
+
+/**
+    * @param $username string
+    * @param $password string
+    * @return array
+    **/
+    function isRegistered($username, $password){
+        $db = connect();
+        $sql = "SELECT * FROM utilisateur WHERE `utilisateur_pseudo` = :username AND `utilisateur_password` = :password";
+    
+        $request = $db->prepare($sql);
+        $request->bindvalue(':username', $username, PDO::PARAM_STR);
+        $request->bindvalue(':password', $password, PDO::PARAM_STR);
+    
+        $request->execute();
+        $return = $request->fetch();
+        
+        if($return){
+            return $return;
+        }
+        return false;
+    }
 ?>
