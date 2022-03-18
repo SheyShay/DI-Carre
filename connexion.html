@@ -1,0 +1,32 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="connexionStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Connexion</title>
+</head>
+
+<body>
+    <div id="block-logo-connexion">
+        <a href="index.php" id="logo-lien-accueil">
+            <img src="images/Logo.png" id="logo-connexion">
+        </a>
+    </div>
+    <h2>Retour à l'accueil</h2>
+    <div id="container">        
+        <form action="verification.php" method="POST">
+            <h1>Connexion</h1>
+            
+            <label><b>Nom d'utilisateur</b></label>
+            <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+            <label><b>Mot de passe</b></label>
+            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+            <input type="submit" id='submit' value='Connexion' >
+
+            <a href="creation_compte.html" id="lien-creation-compte">Creer un compte ici</a>
+        </form>
+    </div>
+    
+</body>
