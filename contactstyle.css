@@ -1,0 +1,165 @@
+body{
+  margin: auto;
+}
+
+/* ----------------------------------- CONTACT --------------------------------------------*/
+#block-contacts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 116px;
+}
+#title-contact{
+    text-align: center;
+    padding-top: 80px;
+    margin-bottom: 20px;
+}
+#block-contact-gauche{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    width: 40%;
+}
+.reseau{
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+}
+
+.separation-contact{
+  background-color: black;
+  margin-left: 5%;
+  width: 60%;
+  height: 1px;
+}
+#linkedin{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10%;
+}
+
+.reseau:hover{
+  color: #00834b;
+}
+#image-link{
+    width: 22%;
+}
+#image-linkedin{
+    width: 18vh;
+}
+#membres-linkedin{
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#membres-linkedin p{
+  color: black;
+}
+#membres-linkedin p:hover{
+  color: #00834b;
+}
+
+/* ----- FORMULAIRE ---- */
+#block-contact-droite{
+    width: 40%;
+}
+#formulaire{
+    width: 100%;
+    display: flex;
+    text-align: center;
+  }
+  form{
+    max-width: 80%;
+  }
+  .feedback-input::placeholder{
+    color: black;
+  }
+  
+  .feedback-input {
+    color:black;
+    font-weight:500;
+    font-size: 16px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: white;
+    border:2px solid #000;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width:100%;
+    box-sizing: border-box;
+    outline:0;
+  }
+  
+  
+  .feedback-input:focus { border:2px solid #a71100; }
+  
+  textarea {
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+  }
+  
+  [type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 100%;
+    background:#a71100;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size:18px;
+    padding-top:5px;
+    padding-bottom:5px;
+    transition: all 0.2s;
+    margin-top:-4px;
+    font-weight:700;
+  }
+  [type="submit"]:hover { background:#00834b; }
+  
+  @media (max-width:1024px){
+    #formulaire{
+      width: 100%;
+    }
+    form{
+      max-width: 100%;
+      padding-top: 20px;
+    }
+    #linkedin{
+      margin-top: 20px;
+      gap: 0px;
+    }
+    #block-contacts{
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin-bottom: 50px;
+    }
+    #image-link{
+      width: 100%;
+    }
+    .reseau{
+      display: flex;
+      gap : 10px;
+      text-align: center;
+      align-items: center;
+      padding-left: 15%;
+    }
+    #block-contact-droite{
+      width: 100%;
+    }
+    #block-contact-gauche{
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+  }

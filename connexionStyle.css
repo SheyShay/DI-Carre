@@ -1,0 +1,95 @@
+body{
+    background-color: #0097A7;
+}
+
+#block-logo-connexion{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    color: white;
+}
+
+#logo-connexion{
+    width: 100%;
+}
+#logo-lien-accueil{
+    width: 9%;
+}
+#container{
+    font-size: 0.9em;
+    width: 35%;
+    margin: 0 30%;
+    margin-top: 1%;
+    color: black;
+}
+/* Bordered form */
+form {
+    font-size: 1em;
+    width:100%;
+    padding: 25px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#container h1{
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #53af57;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #53af57;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
+}
+#lien-creation-compte{
+    color: blue;
+}
+@media (max-width: 1024px){
+    #logo-connexion{
+        width: 100%;
+    }
+    #logo-lien-accueil{
+        width: 15%;
+    }
+    #container{
+        width: 80%;
+        margin: 5% 7%;
+        font-size: 30px;
+    }
+    input[type=text], input[type=password] {
+        font-size: 25px;
+    }
+    
+    /* Set a style for all buttons */
+    input[type=submit] {
+        font-size: 25px;
+    }
+}
